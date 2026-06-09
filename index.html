@@ -1596,7 +1596,7 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:0.85rem;color:var(--text3
         <div class="card-header"><div class="card-icon purple">👨‍👩‍👧</div><div><div class="card-title">Dependientes económicos</div><div class="card-sub">Incrementan tu pensión</div></div></div>
         <div class="g2">
           <div class="field"><div class="label">¿Tienes esposa o concubina?</div><select id="esposa" onchange="guardarLS()"><option value="0">No</option><option value="1">Sí (+15%)</option></select></div>
-          <div class="field"><div class="label">Hijos menores de edad o estudiantes (hasta 25 años)</div><input id="hijos" type="number" min="0" max="10" oninput="guardarLS()"><span class="hint">+10% por cada uno</span></div>
+          <div class="field"><div class="label">Hijos menores de 16 años</div><input id="hijos" type="number" min="0" max="10" oninput="guardarLS()"><span class="hint">+10% por cada uno</span></div>
         </div>
         <div class="field"><div class="label">Padres dependientes</div><input id="padres" type="number" min="0" max="2" oninput="guardarLS()"><span class="hint">Solo si no tienes esposa ni hijos · +10% c/u</span></div>
         <div id="asist_info" style="margin-top:0.5rem"></div>
@@ -2512,7 +2512,7 @@ function renderCards(){
       <div id="card-result-${p.id}" style="background:${dias>0&&sdi>0?'var(--teal-light)':'var(--bg2)'};border-radius:var(--radius-sm);padding:0.9rem 1.2rem;display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center">
         <div><div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text3)">Días trabajados</div><div style="font-size:1.2rem;font-weight:800;color:var(--text)" id="dias-${p.id}">${dias>0?dias:'—'}</div></div>
         <div><div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text3)">Semanas</div><div style="font-size:1.2rem;font-weight:800;color:var(--text)" id="sem-${p.id}">${dias>0?sem.toFixed(2):'—'}</div></div>
-        <div style="display:none"><div>Semanas × SDI (aporte al promedio)</div><div id="prod-${p.id}">${prodStr}</div></div>
+        <div style="margin-left:auto;text-align:right"><div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:${dias>0&&sdi>0?'var(--teal-dark)':'var(--text3)'}">Semanas × SDI (aporte al promedio)</div><div style="font-size:1.4rem;font-weight:800;color:${dias>0&&sdi>0?'var(--teal)':'var(--text3)'}" id="prod-${p.id}">${prodStr}</div></div>
       </div>`;
 
     lista.appendChild(card);
